@@ -21,6 +21,10 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 import os.path
 from gensim.models import Word2Vec
 
+import sys
+if sys.version_info[0] >= 3:
+    unicode = str
+
 def stopwordslist(filepath = '../data/weibo/stop_words.txt'):
     stopwords = {}
     for line in open(filepath, 'r').readlines():
