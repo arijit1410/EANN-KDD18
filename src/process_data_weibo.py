@@ -28,7 +28,8 @@ if sys.version_info[0] >= 3:
 def stopwordslist(filepath = '../data/weibo/stop_words.txt'):
     stopwords = {}
     for line in open(filepath, 'r').readlines():
-        line = unicode(line, "utf-8").strip()
+#         line = unicode(line, "utf-8").strip()
+        line = str(line).strip()
         stopwords[line] = 1
     #stopwords = [line.strip() for line in open(filepath, 'r', encoding='utf-8').readlines()]
     return stopwords
