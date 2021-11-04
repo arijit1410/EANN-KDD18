@@ -126,6 +126,7 @@ def write_data(flag, image, text_only):
 
                 if (i + 1) % 3 == 1:
                     line_data = []
+                    print(l)
                     twitter_id = l.split('|')[0]
                     line_data.append(twitter_id)
 
