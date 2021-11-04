@@ -394,7 +394,7 @@ def get_data(text_only):
 
     #
     #
-    word_embedding_path = "../Data/weibo/w2v.pickle"
+    word_embedding_path = "../data/weibo/w2v.pickle"
 
     w2v = pickle.load(open(word_embedding_path, 'rb'))
     # print(temp)
