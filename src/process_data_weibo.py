@@ -43,7 +43,7 @@ def clean_str_sst(string):
 #
 def read_image():
     image_list = {}
-    file_list = ['../data/weibo/nonrumor_images/', '../Data/weibo/rumor_images/']
+    file_list = ['../data/weibo/nonrumor_images/', '../data/weibo/rumor_images/']
     for path in file_list:
         data_transforms = transforms.Compose([
             transforms.Resize(256),
