@@ -21,7 +21,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 import os.path
 from gensim.models import Word2Vec
 
-def stopwordslist(filepath = '../Data/weibo/stop_words.txt'):
+def stopwordslist(filepath = '../data/weibo/stop_words.txt'):
     stopwords = {}
     for line in open(filepath, 'r').readlines():
         line = unicode(line, "utf-8").strip()
@@ -43,7 +43,7 @@ def clean_str_sst(string):
 #
 def read_image():
     image_list = {}
-    file_list = ['../Data/weibo/nonrumor_images/', '../Data/weibo/rumor_images/']
+    file_list = ['../data/weibo/nonrumor_images/', '../Data/weibo/rumor_images/']
     for path in file_list:
         data_transforms = transforms.Compose([
             transforms.Resize(256),
@@ -67,7 +67,7 @@ def read_image():
     return image_list
 
 def write_txt(data):
-    f = open("../Data/weibo/top_n_data.txt", 'wb')
+    f = open("../data/weibo/top_n_data.txt", 'wb')
     for line in data:
         for l in line:
             f.write(l+"\n")
@@ -79,15 +79,15 @@ def write_data(flag, image, text_only):
 
     def read_post(flag):
         stop_words = stopwordslist()
-        pre_path = "../Data/weibo/tweets/"
+        pre_path = "../data/weibo/tweets/"
         file_list = [pre_path + "test_nonrumor.txt", pre_path + "test_rumor.txt", \
                          pre_path + "train_nonrumor.txt", pre_path + "train_rumor.txt"]
         if flag == "train":
-            id = pickle.load(open("../Data/weibo/train_id.pickle", 'rb'))
+            id = pickle.load(open("../data/weibo/train_id.pickle", 'rb'))
         elif flag == "validate":
-            id = pickle.load(open("../Data/weibo/validate_id.pickle", 'rb'))
+            id = pickle.load(open("../data/weibo/validate_id.pickle", 'rb'))
         elif flag == "test":
-            id = pickle.load(open("../Data/weibo/test_id.pickle", 'rb'))
+            id = pickle.load(open("../data/weibo/test_id.pickle", 'rb'))
 
 
         post_content = []
@@ -432,7 +432,7 @@ def get_data(text_only):
     # # rand_vecs = {}
     # # add_unknown_words(rand_vecs, vocab)
     W2 = rand_vecs = {}
-    w_file = open("../Data/weibo/word_embedding.pickle", "wb")
+    w_file = open("../data/weibo/word_embedding.pickle", "wb")
     pickle.dump([W, W2, word_idx_map, vocab, max_l], w_file)
     w_file.close()
     return train_data, valiate_data, test_data
